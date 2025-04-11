@@ -169,3 +169,36 @@ body{
 #moneyico{
     margin-top: 10px;
 }
+#setingsico3{
+    width: 37px;
+    margin-top: -10px;
+}
+input[type="radio"]{
+    margin: 10px;
+    transition: box-shadow 0.3s ease transform 0.3s ease;
+}
+input[type="radio"]:checked{
+    transition: transform 0.6s ease;
+    transform: scale(1.7);
+    box-shadow: 1px 1px 9px 3px rgb(78, 78, 78);
+}
+input[type="chek"]:not(:checked){
+    transition: all 0.3s ease;
+    transform: scale(1.0);
+    box-shadow: 0px 0px 0px 0px rgb(173, 153, 153);
+}
+label{
+    font-size: 20px;
+}
+#save{
+    margin-top: 30px; 
+    border-radius: 5px;
+    font-weight: bold;
+    color: rgb(232, 232, 232);
+    background-color: #097827;
+    padding: 5px 5px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
