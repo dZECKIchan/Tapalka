@@ -42,7 +42,6 @@ function addmonet(){
         textprogress.innerText = `${count}/100`;
         procent++;
         progress.style.width = `${procent}%`;
-        moneyico.style.fill = `red`;
     }
 }
 
