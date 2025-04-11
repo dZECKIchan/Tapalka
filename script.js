@@ -1,14 +1,16 @@
 const icon = document.getElementById("setingsico");
 
 icon.addEventListener("click", () => {
-  icon.classList.remove("animate-rotate");
-  void icon.offsetWidth;
-  icon.classList.add("animate-rotate");
-
-  setTimeout(() => {
-    window.location.href = "setings.html";
-  }, 1200);
-});
+    icon.classList.add("animate-rotate");
+  
+    setTimeout(() => {
+      window.location.href = "setings.html";
+    }, 1200);
+  });
+  
+  icon.addEventListener("animationend", () => {
+    icon.classList.remove("animate-rotate");
+  });
 const icon2 = document.getElementById("setingsico2");
 
 icon2.addEventListener("click", () => {
@@ -20,5 +22,3 @@ icon2.addEventListener("click", () => {
     window.location.href = "setings.html";
   }, 1200);
 });
-
-
