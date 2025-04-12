@@ -96,7 +96,7 @@ body{
     color: #06971e;
 }
 #vzad{
-    color: #06971e;
+    color: #404240;
     background-color: none;
     background: none;
     border: none;
@@ -129,7 +129,72 @@ body{
     border: none;
     border-radius: 20px;
     font-size: 20px;
-    background-color: #00c853;
+    background-color: #404240;
     color: rgb(38, 38, 38);
     padding: 10px 20px;
+}
+@keyframes swing {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(20px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes rotateMe {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+@keyframes scaleMe {
+    0% {
+      transform: scale(1.0);
+    }
+    50% {
+      transform: scale(1.30);
+    }
+    100% {
+        transform: scale(1.0);
+      }
+  } 
+#erorid{
+    animation: swing 0.6s ease-in-out 2;
+    text-shadow: 1px 1px 1px red;
+    color: rgb(181, 68, 68);
+}
+#setingsico{
+    width: 37px;
+    margin-top: -10px;
+}
+#setingsico3{
+    width: 37px;
+    margin-top: -10px;
+}
+#navbar{
+    border-radius: 10px;
+    background-color: rgb(50, 50, 50);
+    text-align: center;
+    align-items: center;
+    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}
+.animate-rotate{
+    animation: rotateMe 1s ease-in-out;
+}
+.animate-rotate2{
+    animation: scaleMe  1s ease-in-out;
 }
