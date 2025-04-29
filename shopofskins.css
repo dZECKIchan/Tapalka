@@ -174,11 +174,11 @@ body{
     text-shadow: 1px 1px 1px red;
     color: rgb(181, 68, 68);
 }
-#setingsico{
+#settings{
     width: 37px;
     margin-top: -10px;
 }
-#setingsico3{
+#home{
     width: 37px;
     margin-top: -10px;
 }
@@ -197,4 +197,26 @@ body{
 }
 .animate-rotate2{
     animation: scaleMe  1s ease-in-out;
+}
+@keyframes swing {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(20px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+#error{
+    animation: swing 0.6s ease-in-out 2;
+    text-shadow: 1px 1px 1px red;
+    color: rgb(181, 68, 68);
 }
