@@ -3,6 +3,9 @@ let shop = document.getElementById("shop");
 let text_progress = document.getElementById("textprogress");
 let monet = document.getElementById("monet");
 let progress = document.getElementById("progress");
+let level = document.getElementById("level");
+const audio_of_level_up = new Audio('levelUp.wav'); audio_of_level_up.volume = 0.7;
+
 
 settings.addEventListener("click", (event) => {
     window.location.href = "setings.html"
@@ -24,8 +27,16 @@ else {
 }
 
 function addmonet(){
-    if (count === 100){
-        monet.innerText = 'НЕ ГАНЯЙТЕ ПАЦАНИ 😫😫😫'
+    if (count >= 100){
+        if(count == 100){
+            audio_of_level_up.play()
+        }
+        count++;
+        localStorage.setItem('count', count)
+        text_progress.innerText = `${count}/1000`;
+        monet.innerText = count;
+        progress.style.width = `${count / 10}%`;
+        level.innerText = '2 Уровень'
     }
     else {
         count++;
