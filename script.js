@@ -7,16 +7,19 @@ let level = document.getElementById("level");
 const audio_of_level_up = new Audio('levelUp.wav'); audio_of_level_up.volume = 0.7;
 let modal_window = document.getElementById("modal_window");
 let main_btn = document.getElementById("mainbtn");
+let cash_sound = document.getElementById("cash_sound");
 
 settings.addEventListener("click", (event) => {
-    window.location.href = "setings.html"
+    window.location.href = "setings.html";
 })
 shop.addEventListener("click", (event) => {
-    window.location.href = "shopofskin.html"
+    window.location.href = "shopofskin.html";
 })
 
-let count
+let count;
+let MoneySkin;
 
+//LOCAL STORAGE
 if (localStorage.getItem('count') == null){
     count = Number(localStorage.setItem('count', 0));
 }
@@ -26,6 +29,17 @@ else {
     progress.style.width = `${count}%`;
     text_progress.innerText = `${count}/100`;
 }
+if(localStorage.getItem('MoneySkin') === null){
+    MoneySkin = localStorage.setItem('MoneySkin', 'false');
+}
+else{
+    if (localStorage.getItem('MoneySkinActive') == 'true'){
+        main_btn.className = 'money-button'
+        main_btn.id = 'money-button'
+        main_btn.innerText = '🤑'
+    }
+}
+
 
 function addmonet(){
     count++;
@@ -68,6 +82,10 @@ function addmonet(){
             modal_window.className = 'animate_window_reverse'
         }, 6000)
         main_btn.onclick = null;
+    }
+    if (localStorage.getItem('MoneySkinActive') === 'true'){
+        cash_sound.currentTime = 0;
+        cash_sound.play()
     }
 }
 

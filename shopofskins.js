@@ -15,13 +15,31 @@ settings.addEventListener("click", () => {
     window.location.href = "setings.html"
 })
 
+if(localStorage.getItem('MoneySkinActive') === null){
+    MoneySkinActive = Boolean(localStorage.setItem('MoneySkinActive', 'false'));
+}
+
 function buy(){
-    if(Number(localStorage.getItem("count")) < 500){
-        error.innerText = 'Невистачає коштів!'
-        error.id = 'error'
-        document.body.append(error)
+    if (MoneySkin == 'false'){
+        if(Number(localStorage.getItem("count")) < 500){
+            error.innerText = 'Невистачає коштів!'
+            error.id = 'error'
+            document.body.append(error)
+        }
+        else{
+            localStorage.setItem("MoneySkin", 'true');
+            let count = String(localStorage.getItem("count") - 500);
+            localStorage.setItem("count", count);
+            buy_skin.onclick = choose_money_skin;
+            buy_skin.innerText = `Вибрати`
+        }
     }
 }
+
+
+
+let MoneySkinActive = localStorage.getItem("MoneySkinActive");
+let MoneySkin = localStorage.getItem("MoneySkin");
 
 function nextskin(){
 
@@ -39,6 +57,11 @@ function nextskin(){
         price.innerText = "Стандартний скін"
         buy_skin.style.backgroundColor = "#404240";
         buy_skin.innerText = "Вибрати"
+        if(localStorage.getItem("MoneySkinActive") == 'true'){
+            buy_skin.style.backgroundColor = "#28a745";
+            buy_skin.innerText = 'Вибрати'
+            buy_skin.onclick = choose_standart_skin;
+        }
         error.remove()
     }
 
@@ -56,7 +79,32 @@ function nextskin(){
     buy_skin.style.backgroundColor = "#28a745";
     buy_skin.innerText = "Купити"
     buy_skin.onclick = buy;
-
+    if(localStorage.getItem("MoneySkinActive") == 'true'){
+        buy_skin.style.backgroundColor = "#404240";
+        buy_skin.innerText = 'Вибрати'
+        buy_skin.onclick = null;
+    }
+    if(MoneySkin == 'true'){
+        buy_skin.onclick = choose_money_skin;
+        buy_skin.innerText = `Вибрати`
+    }
 }
 
+//IF STATEMENTS
 
+function choose_money_skin(){
+    localStorage.setItem("MoneySkinActive", 'true')
+    buy_skin.style.backgroundColor = "#404240";
+    buy_skin.innerText = 'Вибрати'
+}
+function choose_standart_skin(){
+    localStorage.setItem("MoneySkinActive", 'false')
+    buy_skin.style.backgroundColor = "#404240";
+    buy_skin.innerText = 'Вибрати'
+
+}
+if(MoneySkinActive == 'true'){
+    buy_skin.style.backgroundColor = "#28a745";
+    buy_skin.innerText = 'Вибрати'
+    buy_skin.onclick = choose_standart_skin;
+}

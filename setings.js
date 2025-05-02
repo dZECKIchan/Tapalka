@@ -16,6 +16,7 @@ function savesetings() {
         if(delete_progress_choise){
             window.alert("Прогрес успішно скинутий!")
             localStorage.setItem('count', 0)
+            localStorage.setItem("MoneySkin", false)
         }
     }
     window.location.href = "index.html"
