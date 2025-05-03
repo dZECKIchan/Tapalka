@@ -17,6 +17,8 @@ function savesetings() {
             window.alert("Прогрес успішно скинутий!")
             localStorage.setItem('count', 0)
             localStorage.setItem("MoneySkin", false)
+            localStorage.setItem("MoneySkinActive", false)
+            localStorage.setItem('salary_for_one_click', 1)
         }
     }
     window.location.href = "index.html"

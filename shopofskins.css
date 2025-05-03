@@ -220,3 +220,32 @@ body{
     text-shadow: 1px 1px 1px red;
     color: rgb(181, 68, 68);
 }
+#error2{
+    animation: swing 0.6s ease-in-out 2;
+    text-shadow: 1px 1px 1px red;
+    color: rgb(181, 68, 68);
+}
+hr{
+    margin-top: 70px;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #333, #454545);
+}
+.buylevel{
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: #228739;
+    color: rgb(38, 38, 38);
+    padding: 10px 20px;
+    transition: all ease-in-out 0.1s;
+}
+#price_of_click{
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+.buylevel:active{
+    transform: scale(0.9);
+    box-shadow: 0 0 15px 5px rgba(89, 89, 89, 0.7);
+    background-color: #18b63d;
+}

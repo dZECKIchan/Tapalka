@@ -8,6 +8,7 @@ const audio_of_level_up = new Audio('levelUp.wav'); audio_of_level_up.volume = 0
 let modal_window = document.getElementById("modal_window");
 let main_btn = document.getElementById("mainbtn");
 let cash_sound = document.getElementById("cash_sound");
+let salary_for_one_click = document.getElementById("salary_for_one_click");
 
 settings.addEventListener("click", (event) => {
     window.location.href = "setings.html";
@@ -39,9 +40,14 @@ else{
         main_btn.innerText = '🤑'
     }
 }
-
+if (localStorage.getItem('salary_for_one_click') == null){
+    count = localStorage.setItem('salary_for_one_click', 1);
+}
 
 function addmonet(){
+    if(localStorage.getItem('salary_for_one_click') != '1'){
+        count += Number(localStorage.getItem('salary_for_one_click')) - 1;
+    }
     count++;
     if(count === 100 || count === 1000){
         audio_of_level_up.play()
@@ -49,6 +55,16 @@ function addmonet(){
     if (count === 1000){
         modal_window.className = 'animate_window';
         modal_window.style.display = 'block';
+        if(localStorage.getItem('salary_for_one_click') == '2'){
+            if(localStorage.getItem('salary_for_one_click') != '1'){
+                modal_window.innerText = `Досягнення! Тепер за клік - ${
+                    localStorage.getItem('salary_for_one_click') + 1
+                }`
+            }
+            else{
+                modal_window.innerText = 'Досягнення! Тепер за клік - 2 монети!'
+            }
+        }
         setTimeout(() => {
             modal_window.className = 'animate_window_reverse'
         }, 4000)
@@ -89,6 +105,8 @@ function addmonet(){
     }
 }
 
+salary_for_one_click.innerText = `Доход за 1 клік: $${localStorage.getItem('salary_for_one_click')}`;
+
 //IF-STATEMENTS-----------------------------
 if (count <= 100) {
     text_progress.innerText = `${count}/100`;
@@ -99,6 +117,9 @@ if (count >= 100 && count < 1000) {
     progress.style.width = `${count / 10}%`;
 }
 if (count >= 1000 && count < 5000) {
-    text_progress.innerText = `${count}/5000u`;
+    text_progress.innerText = `${count}/5000`;
     progress.style.width = `${count / 50}%`;
+    if(localStorage.getItem('salary_for_one_click') != '1'){
+        salary_for_one_click.innerText = `Доход за 1 клік: $${Number(localStorage.getItem('salary_for_one_click')) + 1}`
+    }
 }
